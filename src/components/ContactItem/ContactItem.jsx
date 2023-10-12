@@ -16,9 +16,8 @@ export const Item = ({ contact: { name, id, number } }) => {
     <ItemLi>
       <Name>{name}</Name>
       <Number>{number}</Number>
-
       <Btn type="button" onClick={handleDelete} disabled={isLoading}>
-        {isLoading ? 'Loading...' : 'Delete'}
+        Delete
       </Btn>
     </ItemLi>
   );

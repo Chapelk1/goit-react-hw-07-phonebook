@@ -7,10 +7,11 @@ import {
 } from 'components/ContactForm/ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { getContacts , getIsLoading } from 'redux/selectors';
 
 export function ContactForm() {
   const allContacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
   const dispatch = useDispatch()
   
   const addToContact = e => {
@@ -57,7 +58,7 @@ export function ContactForm() {
         </Label>
       </Wrap>
       <Btn type="submit">
-        Add contact
+        {isLoading ? 'Loading...' : 'Add contact'}
       </Btn>
     </Form>
   );
