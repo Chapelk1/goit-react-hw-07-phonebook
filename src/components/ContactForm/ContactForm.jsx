@@ -1,4 +1,3 @@
-import shortid from 'shortid';
 import {
   Form,
   Label,
@@ -7,10 +6,11 @@ import {
   Btn,
 } from 'components/ContactForm/ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/selectors';
 
 export function ContactForm() {
-  const allContacts = useSelector(state => state.contacts.allContacts)
+  const allContacts = useSelector(getContacts);
   const dispatch = useDispatch()
   
   const addToContact = e => {
@@ -24,7 +24,6 @@ export function ContactForm() {
       return alert(`${name.value} is already in contacts.`)
     }
     const contact = {
-      id: shortid(),
       name: name.value,
       number: number.value,
     };
@@ -57,7 +56,9 @@ export function ContactForm() {
           />
         </Label>
       </Wrap>
-      <Btn type="submit">Add contact</Btn>
+      <Btn type="submit">
+        Add contact
+      </Btn>
     </Form>
   );
 }

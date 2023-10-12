@@ -6,9 +6,6 @@ import { Section, Title, SecondTitle,  } from 'components/App/App.styled';
 
 
 export function App() {
-  
-
- 
   return (
     <Section>
       <Title>Phonebook</Title>

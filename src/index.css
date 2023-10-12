@@ -18,3 +18,9 @@ html{
   box-sizing: inherit;
 }
 
+.dna-wrapper{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
